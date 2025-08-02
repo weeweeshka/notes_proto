@@ -1,4 +1,4 @@
-module github.com/weeweeshka/notes_proto/v2
+module github.com/weeweeshka/notes_proto
 
 go 1.24.4
 
