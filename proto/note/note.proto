@@ -3,12 +3,27 @@ syntax = "proto3";
 package note;
 
 option go_package = "emil.note.v1;notes";
-
+import "googleapis/google/api/annotations.proto";
 
 service Note{
-  rpc CreateNote(CreateNoteRequest) returns (CreateNoteResponse);
-  rpc ReadNote(ReadNoteRequest) returns (ReadNoteResponse);
-  rpc DeleteNote(DeleteNoteRequest) returns (DeleteNoteResponse);
+  rpc CreateNote(CreateNoteRequest) returns (CreateNoteResponse){
+    option (google.api.http) = {
+      post: "/v1/notes/create"
+      body: "*"
+    };
+  }
+
+  rpc ReadNote(ReadNoteRequest) returns (ReadNoteResponse){
+    option (google.api.http) = {
+      get: "/v1/notes/{note_id}"
+    };
+  }
+
+  rpc DeleteNote(DeleteNoteRequest) returns (DeleteNoteResponse){
+    option (google.api.http) = {
+      delete: "/v1/notes/{note_id}"
+    };
+  }
 }
 
 
