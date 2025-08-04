@@ -2,7 +2,7 @@
 // source: notes_proto/proto/note/note.proto
 
 /*
-Package notes is a reverse proxy.
+Package note is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
@@ -11,7 +11,6 @@ package note
 import (
 	"context"
 	"errors"
-	note2 "github.com/weeweeshka/auth_proto/notes_proto/proto/note"
 	"io"
 	"net/http"
 
@@ -36,7 +35,7 @@ var (
 	_ = metadata.Join
 )
 
-func request_Note_CreateNote_0(ctx context.Context, marshaler runtime.Marshaler, client note2.NoteClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Note_CreateNote_0(ctx context.Context, marshaler runtime.Marshaler, client NoteClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq CreateNoteRequest
 		metadata runtime.ServerMetadata
@@ -51,7 +50,7 @@ func request_Note_CreateNote_0(ctx context.Context, marshaler runtime.Marshaler,
 	return msg, metadata, err
 }
 
-func local_request_Note_CreateNote_0(ctx context.Context, marshaler runtime.Marshaler, server note2.NoteServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Note_CreateNote_0(ctx context.Context, marshaler runtime.Marshaler, server NoteServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq CreateNoteRequest
 		metadata runtime.ServerMetadata
@@ -63,7 +62,7 @@ func local_request_Note_CreateNote_0(ctx context.Context, marshaler runtime.Mars
 	return msg, metadata, err
 }
 
-func request_Note_ReadNote_0(ctx context.Context, marshaler runtime.Marshaler, client note2.NoteClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Note_ReadNote_0(ctx context.Context, marshaler runtime.Marshaler, client NoteClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq ReadNoteRequest
 		metadata runtime.ServerMetadata
@@ -84,7 +83,7 @@ func request_Note_ReadNote_0(ctx context.Context, marshaler runtime.Marshaler, c
 	return msg, metadata, err
 }
 
-func local_request_Note_ReadNote_0(ctx context.Context, marshaler runtime.Marshaler, server note2.NoteServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Note_ReadNote_0(ctx context.Context, marshaler runtime.Marshaler, server NoteServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq ReadNoteRequest
 		metadata runtime.ServerMetadata
@@ -102,7 +101,7 @@ func local_request_Note_ReadNote_0(ctx context.Context, marshaler runtime.Marsha
 	return msg, metadata, err
 }
 
-func request_Note_DeleteNote_0(ctx context.Context, marshaler runtime.Marshaler, client note2.NoteClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Note_DeleteNote_0(ctx context.Context, marshaler runtime.Marshaler, client NoteClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq DeleteNoteRequest
 		metadata runtime.ServerMetadata
@@ -123,7 +122,7 @@ func request_Note_DeleteNote_0(ctx context.Context, marshaler runtime.Marshaler,
 	return msg, metadata, err
 }
 
-func local_request_Note_DeleteNote_0(ctx context.Context, marshaler runtime.Marshaler, server note2.NoteServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Note_DeleteNote_0(ctx context.Context, marshaler runtime.Marshaler, server NoteServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq DeleteNoteRequest
 		metadata runtime.ServerMetadata
@@ -146,7 +145,7 @@ func local_request_Note_DeleteNote_0(ctx context.Context, marshaler runtime.Mars
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterNoteHandlerFromEndpoint instead.
 // GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
-func RegisterNoteHandlerServer(ctx context.Context, mux *runtime.ServeMux, server note2.NoteServer) error {
+func RegisterNoteHandlerServer(ctx context.Context, mux *runtime.ServeMux, server NoteServer) error {
 	mux.Handle(http.MethodPost, pattern_Note_CreateNote_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -238,7 +237,7 @@ func RegisterNoteHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux,
 // RegisterNoteHandler registers the http handlers for service Note to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
 func RegisterNoteHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterNoteHandlerClient(ctx, mux, note2.NewNoteClient(conn))
+	return RegisterNoteHandlerClient(ctx, mux, NewNoteClient(conn))
 }
 
 // RegisterNoteHandlerClient registers the http handlers for service Note
@@ -246,7 +245,7 @@ func RegisterNoteHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.
 // Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "NoteClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
 // "NoteClient" to call the correct interceptors. This client ignores the HTTP middlewares.
-func RegisterNoteHandlerClient(ctx context.Context, mux *runtime.ServeMux, client note2.NoteClient) error {
+func RegisterNoteHandlerClient(ctx context.Context, mux *runtime.ServeMux, client NoteClient) error {
 	mux.Handle(http.MethodPost, pattern_Note_CreateNote_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
