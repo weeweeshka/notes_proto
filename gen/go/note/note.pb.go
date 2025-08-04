@@ -308,7 +308,7 @@ const file_notes_proto_proto_note_note_proto_rawDesc = "" +
 	"CreateNote\x12\x17.note.CreateNoteRequest\x1a\x18.note.CreateNoteResponse\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/v1/notes/create\x12V\n" +
 	"\bReadNote\x12\x15.note.ReadNoteRequest\x1a\x16.note.ReadNoteResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/notes/{note_id}\x12\\\n" +
 	"\n" +
-	"DeleteNote\x12\x17.note.DeleteNoteRequest\x1a\x18.note.DeleteNoteResponse\"\x1b\x82\xd3\xe4\x93\x02\x15*\x13/v1/notes/{note_id}B3Z1github.com/weeweeshka/notes_proto/proto/note;noteb\x06proto3"
+	"DeleteNote\x12\x17.note.DeleteNoteRequest\x1a\x18.note.DeleteNoteResponse\"\x1b\x82\xd3\xe4\x93\x02\x15*\x13/v1/notes/{note_id}B4Z2github.com/weeweeshka/notes_proto/gen/go/note;noteb\x06proto3"
 
 var (
 	file_notes_proto_proto_note_note_proto_rawDescOnce sync.Once

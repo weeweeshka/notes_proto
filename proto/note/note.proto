@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package note;
 
-option go_package = "github.com/weeweeshka/notes_proto/proto/note;note";
+option go_package = "github.com/weeweeshka/notes_proto/gen/go/note;note";
 import "googleapis/google/api/annotations.proto";
 
 service Note{
